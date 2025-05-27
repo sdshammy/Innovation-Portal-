@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ideas | Corporate Innovation Portal</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header (same as index.html) -->
+    <header class="main-header">
+      <div class="header-content">
+        <div class="logo">
+          <i class="fas fa-lightbulb"></i>
+          <span style="background-color: white; padding: 4px; display: inline-block; border-radius: 4px;">
+            <img src="canada-life-e-tm.svg" alt="Canada Life Logo" style="height: 2em; vertical-align: middle;">
+          </span>
+        </div>
+        <nav class="main-nav">
+          <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+          <a href="news.html"><i class="fas fa-fire"></i> News</a>
+          <a href="ideas.html" class="active"><i class="fas fa-lightbulb"></i> Ideas</a>
+          <a href="challenges.html"><i class="fas fa-trophy"></i> Challenges</a>
+          <a href="teams.html"><i class="fas fa-users"></i> Teams</a>
+        </nav>
+        <div class="user-controls">
+          <button class="btn-notification">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">3</span>
+          </button>
+          <div class="user-profile">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User profile">
+            <div class="profile-menu">
+              <a href="#"><i class="fas fa-user"></i> Profile</a>
+              <a href="#"><i class="fas fa-cog"></i> Settings</a>
+              <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+          </div>
+        </div>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Menu (same as index.html) -->
+    <div class="mobile-menu">
+      <nav class="mobile-nav">
+        <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="news.html"><i class="fas fa-fire"></i> News</a>
+        <a href="ideas.html" class="active"><i class="fas fa-lightbulb"></i> Ideas</a>
+        <a href="challenges.html"><i class="fas fa-trophy"></i> Challenges</a>
+        <a href="teams.html"><i class="fas fa-users"></i> Teams</a>
+        <div class="mobile-auth">
+          <button class="btn btn-primary" id="mobile-submit-idea-btn">
+            <i class="fas fa-plus"></i> Submit Idea
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Include all the same modals from index.html here -->
+    <!-- Idea Submission Modal, Idea Detail Modal, etc. -->
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="page-header">
+        <h1><i class="fas fa-lightbulb"></i> Ideas</h1>
+        <p>Browse and contribute to innovative ideas from across the company</p>
+        <button class="btn btn-primary" id="submit-idea-btn">
+          <i class="fas fa-plus"></i> Submit Idea
+        </button>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters-section">
+        <div class="search-filter">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Search ideas...">
+        </div>
+        <div class="category-filter">
+          <select>
+            <option value="">All Categories</option>
+            <option value="technology">Technology</option>
+            <option value="operations">Operations</option>
+            <option value="marketing">Marketing</option>
+            <option value="finance">Finance</option>
+            <option value="hr">HR</option>
+            <option value="product">Product</option>
+          </select>
+        </div>
+        <div class="sort-filter">
+          <select>
+            <option value="recent">Most Recent</option>
+            <option value="popular">Most Popular</option>
+            <option value="comments">Most Comments</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Ideas Grid (same as index.html but expanded) -->
+      <section class="ideas-grid">
+        <!-- Idea Card 1 -->
+        <div class="idea-card" data-idea-id="1">
+          <div class="idea-header">
+            <span class="badge tech-badge">Technology</span>
+            <span class="idea-date">2 days ago</span>
+          </div>
+          <div class="idea-content">
+            <h3>AI-Powered Document Processing</h3>
+            <p class="idea-description">Implement machine learning to automate contract review and extraction of key terms, reducing legal team workload by 40%...</p>
+            <div class="idea-meta">
+              <div class="meta-item">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Author">
+                <span>Sarah Johnson</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-comment"></i>
+                <span>12</span>
+              </div>
+            </div>
+          </div>
+          <div class="idea-footer">
+            <button class="btn btn-upvote">
+              <i class="fas fa-arrow-up"></i> 48
+            </button>
+            <button class="btn btn-outline view-idea-btn">
+              <i class="fas fa-eye"></i> View
+            </button>
+          </div>
+        </div>
+
+        <!-- Idea Card 2 -->
+        <div class="idea-card" data-idea-id="2">
+          <div class="idea-header">
+            <span class="badge ops-badge">Operations</span>
+            <span class="idea-date">5 days ago</span>
+          </div>
+          <div class="idea-content">
+            <h3>Automated Employee Onboarding</h3>
+            <p class="idea-description">Create a digital onboarding portal with personalized learning paths and automated documentation processing...</p>
+            <div class="idea-meta">
+              <div class="meta-item">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Author">
+                <span>Marcus Chen</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-comment"></i>
+                <span>8</span>
+              </div>
+            </div>
+          </div>
+          <div class="idea-footer">
+            <button class="btn btn-upvote">
+              <i class="fas fa-arrow-up"></i> 32
+            </button>
+            <button class="btn btn-outline view-idea-btn">
+              <i class="fas fa-eye"></i> View
+            </button>
+          </div>
+        </div>
+
+        <!-- Idea Card 3 -->
+        <div class="idea-card" data-idea-id="3">
+          <div class="idea-header">
+            <span class="badge marketing-badge">Marketing</span>
+            <span class="idea-date">1 week ago</span>
+          </div>
+          <div class="idea-content">
+            <h3>Predictive Customer Engagement</h3>
+            <p class="idea-description">Leverage existing customer data to predict optimal contact times and channels for highest conversion rates...</p>
+            <div class="idea-meta">
+              <div class="meta-item">
+                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Author">
+                <span>Elena Rodriguez</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-comment"></i>
+                <span>5</span>
+              </div>
+            </div>
+          </div>
+          <div class="idea-footer">
+            <button class="btn btn-upvote">
+              <i class="fas fa-arrow-up"></i> 28
+            </button>
+            <button class="btn btn-outline view-idea-btn">
+              <i class="fas fa-eye"></i> View
+            </button>
+          </div>
+        </div>
+
+        <!-- Idea Card 4 -->
+        <div class="idea-card" data-idea-id="4">
+          <div class="idea-header">
+            <span class="badge finance-badge">Finance</span>
+            <span class="idea-date">2 weeks ago</span>
+          </div>
+          <div class="idea-content">
+            <h3>Real-Time Expense Analytics</h3>
+            <p class="idea-description">Dashboard that provides real-time visualization of departmental spending against budgets with predictive alerts...</p>
+            <div class="idea-meta">
+              <div class="meta-item">
+                <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Author">
+                <span>David Wilson</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-comment"></i>
+                <span>3</span>
+              </div>
+            </div>
+          </div>
+          <div class="idea-footer">
+            <button class="btn btn-upvote">
+              <i class="fas fa-arrow-up"></i> 19
+            </button>
+            <button class="btn btn-outline view-idea-btn">
+              <i class="fas fa-eye"></i> View
+            </button>
+          </div>
+        </div>
+
+        <!-- Idea Card 5 -->
+        <div class="idea-card" data-idea-id="5">
+          <div class="idea-header">
+            <span class="badge hr-badge">HR</span>
+            <span class="idea-date">3 weeks ago</span>
+          </div>
+          <div class="idea-content">
+            <h3>Employee Wellness Program</h3>
+            <p class="idea-description">Comprehensive wellness initiative including mental health days, fitness challenges, and healthy eating options...</p>
+            <div class="idea-meta">
+              <div class="meta-item">
+                <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Author">
+                <span>Emma Smith</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-comment"></i>
+                <span>7</span>
+              </div>
+            </div>
+          </div>
+          <div class="idea-footer">
+            <button class="btn btn-upvote">
+              <i class="fas fa-arrow-up"></i> 42
+            </button>
+            <button class="btn btn-outline view-idea-btn">
+              <i class="fas fa-eye"></i> View
+            </button>
+          </div>
+        </div>
+
+        <!-- Idea Card 6 -->
+        <div class="idea-card" data-idea-id="6">
+          <div class="idea-header">
+            <span class="badge product-badge">Product</span>
+            <span class="idea-date">1 month ago</span>
+          </div>
+          <div class="idea-content">
+            <h3>Mobile App Redesign</h3>
+            <p class="idea-description">Complete overhaul of our mobile app with improved UX, dark mode, and new features based on customer feedback...</p>
+            <div class="idea-meta">
+              <div class="meta-item">
+                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Author">
+                <span>James Lee</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-comment"></i>
+                <span>15</span>
+              </div>
+            </div>
+          </div>
+          <div class="idea-footer">
+            <button class="btn btn-upvote">
+              <i class="fas fa-arrow-up"></i> 67
+            </button>
+            <button class="btn btn-outline view-idea-btn">
+              <i class="fas fa-eye"></i> View
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Load More Button -->
+      <div class="load-more">
+        <button class="btn btn-outline">
+          <i class="fas fa-plus"></i> Load More Ideas
+        </button>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <p>&copy; 2023 InnovateX. Internal use only.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

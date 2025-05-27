@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News | Corporate Innovation Portal</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header (same as index.html) -->
+    <header class="main-header">
+      <div class="header-content">
+        <div class="logo">
+          <i class="fas fa-lightbulb"></i>
+          <span style="background-color: white; padding: 4px; display: inline-block; border-radius: 4px;">
+            <img src="canada-life-e-tm.svg" alt="Canada Life Logo" style="height: 2em; vertical-align: middle;">
+          </span>
+        </div>
+        <nav class="main-nav">
+          <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+          <a href="news.html" class="active"><i class="fas fa-fire"></i> Trends</a>
+          <a href="ideas.html"><i class="fas fa-lightbulb"></i> Ideas</a>
+          <a href="challenges.html"><i class="fas fa-trophy"></i> Challenges</a>
+          <a href="teams.html"><i class="fas fa-users"></i> Teams</a>
+        </nav>
+        <div class="user-controls">
+          <button class="btn-notification">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">3</span>
+          </button>
+          <div class="user-profile">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User profile">
+            <div class="profile-menu">
+              <a href="#"><i class="fas fa-user"></i> Profile</a>
+              <a href="#"><i class="fas fa-cog"></i> Settings</a>
+              <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+          </div>
+        </div>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Menu (same as index.html) -->
+    <div class="mobile-menu">
+      <nav class="mobile-nav">
+        <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="news.html" class="active"><i class="fas fa-fire"></i> News</a>
+        <a href="ideas.html"><i class="fas fa-lightbulb"></i> Ideas</a>
+        <a href="challenges.html"><i class="fas fa-trophy"></i> Challenges</a>
+        <a href="teams.html"><i class="fas fa-users"></i> Teams</a>
+        <div class="mobile-auth">
+          <button class="btn btn-primary" id="mobile-submit-idea-btn">
+            <i class="fas fa-plus"></i> Submit Idea
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="page-header">
+        <h1><i class="fas fa-fire"></i> Innovation Trends</h1>
+        <p>Stay updated with the latest innovation trends and company updates</p>
+      </div>
+
+      <!-- News Filters -->
+      <div class="filters-section">
+        <div class="category-tabs">
+          <button class="tab-btn active">All Trends</button>
+          <button class="tab-btn">Company Updates</button>
+          <button class="tab-btn">Industry Trends</button>
+          <button class="tab-btn">Success Stories</button>
+        </div>
+        <div class="search-filter">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Search news...">
+        </div>
+      </div>
+
+      <!-- Featured News -->
+      <section class="featured-news">
+        <div class="news-card featured">
+          <div class="news-image">
+            <img src="https://sloanreview.mit.edu/wp-content/uploads/2019/03/GEN-Stetter-Innovation-1200x627-1200x627.jpg" alt="Featured News">
+            <span class="news-category">Company Update</span>
+          </div>
+          <div class="news-content">
+            <div class="news-meta">
+              <span class="news-date">June 15, 2023</span>
+              <span class="news-author">By Innovation Team</span>
+            </div>
+            <h2>Q2 Innovation Challenge Winners Announced</h2>
+            <p class="news-excerpt">The results are in for our quarterly innovation challenge focused on customer experience improvements. See which ideas will be implemented company-wide.</p>
+            <a href="#" class="read-more">Read More <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- News Grid -->
+      <section class="news-grid">
+        <!-- News Card 1 -->
+        <div class="news-card">
+          <div class="news-image">
+            <img src="https://specials-images.forbesimg.com/imageserve/6200b0dddcf32d3be937fa84/960x0.jpg" alt="News Image">
+            <span class="news-category">Industry Trends</span>
+          </div>
+          <div class="news-content">
+            <div class="news-meta">
+              <span class="news-date">June 10, 2023</span>
+              <span class="news-author">By Tech Insights</span>
+            </div>
+            <h3>How AI is Transforming Financial Services</h3>
+            <p class="news-excerpt">Explore the latest applications of artificial intelligence in our industry and how we're adopting these technologies.</p>
+            <a href="#" class="read-more">Read More <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+
+        <!-- News Card 2 -->
+        <div class="news-card">
+          <div class="news-image">
+            <img src="https://source.unsplash.com/random/400x300/?teamwork" alt="News Image">
+            <span class="news-category">Success Story</span>
+          </div>
+          <div class="news-content">
+            <div class="news-meta">
+              <span class="news-date">June 5, 2023</span>
+              <span class="news-author">By HR Department</span>
+            </div>
+            <h3>Employee Innovation Program Hits 1,000 Submissions</h3>
+            <p class="news-excerpt">Our internal innovation portal has reached a major milestone with over 1,000 ideas submitted by employees across all departments.</p>
+            <a href="#" class="read-more">Read More <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+
+        <!-- News Card 3 -->
+        <div class="news-card">
+          <div class="news-image">
+            <img src="https://source.unsplash.com/random/400x300/?sustainability" alt="News Image">
+            <span class="news-category">Company Update</span>
+          </div>
+          <div class="news-content">
+            <div class="news-meta">
+              <span class="news-date">May 28, 2023</span>
+              <span class="news-author">By Green Team</span>
+            </div>
+            <h3>New Sustainability Initiatives Launched</h3>
+            <p class="news-excerpt">Learn about our new company-wide sustainability program developed from employee suggestions.</p>
+            <a href="#" class="read-more">Read More <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+
+        <!-- News Card 4 -->
+        <div class="news-card">
+          <div class="news-image">
+            <img src="https://source.unsplash.com/random/400x300/?workspace" alt="News Image">
+            <span class="news-category">Industry Trends</span>
+          </div>
+          <div class="news-content">
+            <div class="news-meta">
+              <span class="news-date">May 20, 2023</span>
+              <span class="news-author">By Future of Work</span>
+            </div>
+            <h3>The Future of Hybrid Work Models</h3>
+            <p class="news-excerpt">How companies are adapting workspaces and policies for the new era of flexible work arrangements.</p>
+            <a href="#" class="read-more">Read More <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+
+        <!-- News Card 5 -->
+        <div class="news-card">
+          <div class="news-image">
+            <img src="https://source.unsplash.com/random/400x300/?award" alt="News Image">
+            <span class="news-category">Success Story</span>
+          </div>
+          <div class="news-content">
+            <div class="news-meta">
+              <span class="news-date">May 15, 2023</span>
+              <span class="news-author">By PR Team</span>
+            </div>
+            <h3>Our Innovation Lab Wins Industry Award</h3>
+            <p class="news-excerpt">Recognized for excellence in developing employee-driven solutions that improve customer experience.</p>
+            <a href="#" class="read-more">Read More <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+
+        <!-- News Card 6 -->
+        <div class="news-card">
+          <div class="news-image">
+            <img src="https://source.unsplash.com/random/400x300/?data" alt="News Image">
+            <span class="news-category">Industry Trends</span>
+          </div>
+          <div class="news-content">
+            <div class="news-meta">
+              <span class="news-date">May 10, 2023</span>
+              <span class="news-author">By Data Team</span>
+            </div>
+            <h3>Emerging Trends in Data Privacy</h3>
+            <p class="news-excerpt">What you need to know about the latest developments in data protection regulations and technologies.</p>
+            <a href="#" class="read-more">Read More <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Load More Button -->
+      <div class="load-more">
+        <button class="btn btn-outline">
+          <i class="fas fa-plus"></i> Load More News
+        </button>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <p>&copy; 2023 InnovateX. Internal use only.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

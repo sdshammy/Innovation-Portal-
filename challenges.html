@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Challenges | Corporate Innovation Portal</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header (same as index.html) -->
+    <header class="main-header">
+      <div class="header-content">
+        <div class="logo">
+          <i class="fas fa-lightbulb"></i>
+          <span style="background-color: white; padding: 4px; display: inline-block; border-radius: 4px;">
+            <img src="canada-life-e-tm.svg" alt="Canada Life Logo" style="height: 2em; vertical-align: middle;">
+          </span>
+        </div>
+        <nav class="main-nav">
+          <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+          <a href="news.html"><i class="fas fa-fire"></i> News</a>
+          <a href="ideas.html"><i class="fas fa-lightbulb"></i> Ideas</a>
+          <a href="challenges.html" class="active"><i class="fas fa-trophy"></i> Challenges</a>
+          <a href="teams.html"><i class="fas fa-users"></i> Teams</a>
+        </nav>
+        <div class="user-controls">
+          <button class="btn-notification">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">3</span>
+          </button>
+          <div class="user-profile">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User profile">
+            <div class="profile-menu">
+              <a href="#"><i class="fas fa-user"></i> Profile</a>
+              <a href="#"><i class="fas fa-cog"></i> Settings</a>
+              <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+          </div>
+        </div>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Menu (same as index.html) -->
+    <div class="mobile-menu">
+      <nav class="mobile-nav">
+        <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="news.html"><i class="fas fa-fire"></i> News</a>
+        <a href="ideas.html"><i class="fas fa-lightbulb"></i> Ideas</a>
+        <a href="challenges.html" class="active"><i class="fas fa-trophy"></i> Challenges</a>
+        <a href="teams.html"><i class="fas fa-users"></i> Teams</a>
+        <div class="mobile-auth">
+          <button class="btn btn-primary" id="mobile-submit-idea-btn">
+            <i class="fas fa-plus"></i> Submit Idea
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Include all the same modals from index.html here -->
+    <!-- Challenge Detail Modal, Idea Submission Modal, etc. -->
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="page-header">
+        <h1><i class="fas fa-trophy"></i> Innovation Challenges</h1>
+        <p>Participate in company-wide challenges to solve key business problems</p>
+        <div class="header-actions">
+          <button class="btn btn-primary" id="submit-idea-btn">
+            <i class="fas fa-plus"></i> Submit Idea
+          </button>
+          <button class="btn btn-outline">
+            <i class="fas fa-history"></i> Past Challenges
+          </button>
+        </div>
+      </div>
+
+      <!-- Challenge Filters -->
+      <div class="filters-section">
+        <div class="search-filter">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Search challenges...">
+        </div>
+        <div class="status-filter">
+          <select>
+            <option value="active">Active Challenges</option>
+            <option value="upcoming">Upcoming Challenges</option>
+            <option value="past">Past Challenges</option>
+          </select>
+        </div>
+        <div class="sort-filter">
+          <select>
+            <option value="recent">Most Recent</option>
+            <option value="deadline">Closest Deadline</option>
+            <option value="popular">Most Participants</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Challenges Grid -->
+      <section class="challenges-grid">
+        <!-- Challenge Card 1 -->
+        <div class="challenge-card" data-challenge-id="1">
+          <div class="challenge-header">
+            <span class="challenge-prize">$10K Budget</span>
+            <span class="challenge-deadline">Ends in 12 days</span>
+          </div>
+          <h3>Improving Remote Collaboration</h3>
+          <p>Seeking solutions to enhance productivity for our distributed teams</p>
+          <div class="challenge-stats">
+            <span><i class="fas fa-lightbulb"></i> 24 ideas</span>
+            <span><i class="fas fa-users"></i> 18 participants</span>
+          </div>
+          <div class="btn-container">
+            <button class="btn join-challenge-btn">Join Challenge</button>
+          </div>
+        </div>
+
+        <!-- Challenge Card 2 -->
+        <div class="challenge-card" data-challenge-id="2">
+          <div class="challenge-header">
+            <span class="challenge-prize">Executive Recognition</span>
+            <span class="challenge-deadline">Ends in 3 weeks</span>
+          </div>
+          <h3>Reducing Carbon Footprint</h3>
+          <p>Innovative ideas to make our operations more environmentally friendly</p>
+          <div class="challenge-stats">
+            <span><i class="fas fa-lightbulb"></i> 17 ideas</span>
+            <span><i class="fas fa-users"></i> 14 participants</span>
+          </div>
+          <div class="btn-container">
+            <button class="btn join-challenge-btn">Join Challenge</button>
+          </div>
+        </div>
+
+        <!-- Challenge Card 3 -->
+        <div class="challenge-card" data-challenge-id="3">
+          <div class="challenge-header">
+            <span class="challenge-prize">$5K Budget</span>
+            <span class="challenge-deadline">Ends in 5 days</span>
+          </div>
+          <h3>Customer Onboarding Experience</h3>
+          <p>Redesign the first 90-day journey for new customers</p>
+          <div class="challenge-stats">
+            <span><i class="fas fa-lightbulb"></i> 32 ideas</span>
+            <span><i class="fas fa-users"></i> 25 participants</span>
+          </div>
+          <div class="btn-container">
+            <button class="btn join-challenge-btn">Join Challenge</button>
+          </div>
+        </div>
+
+        <!-- Challenge Card 4 -->
+        <div class="challenge-card" data-challenge-id="4">
+          <div class="challenge-header">
+            <span class="challenge-prize">Featured in Newsletter</span>
+            <span class="challenge-deadline">Ends in 1 month</span>
+          </div>
+          <h3>Employee Recognition Program</h3>
+          <p>New ways to recognize and reward outstanding employee contributions</p>
+          <div class="challenge-stats">
+            <span><i class="fas fa-lightbulb"></i> 11 ideas</span>
+            <span><i class="fas fa-users"></i> 9 participants</span>
+          </div>
+          <div class="btn-container">
+            <button class="btn join-challenge-btn">Join Challenge</button>
+          </div>
+        </div>
+
+        <!-- Challenge Card 5 -->
+        <div class="challenge-card" data-challenge-id="5">
+          <div class="challenge-header">
+            <span class="challenge-prize">$15K Budget</span>
+            <span class="challenge-deadline">Ends in 2 weeks</span>
+          </div>
+          <h3>Data Visualization Tools</h3>
+          <p>Innovative ways to present complex data to non-technical stakeholders</p>
+          <div class="challenge-stats">
+            <span><i class="fas fa-lightbulb"></i> 19 ideas</span>
+            <span><i class="fas fa-users"></i> 15 participants</span>
+          </div>
+          <div class="btn-container">
+            <button class="btn join-challenge-btn">Join Challenge</button>
+          </div>
+        </div>
+
+        <!-- Challenge Card 6 -->
+        <div class="challenge-card" data-challenge-id="6">
+          <div class="challenge-header">
+            <span class="challenge-prize">Team Lunch with CEO</span>
+            <span class="challenge-deadline">Ends in 3 days</span>
+          </div>
+          <h3>Office Space Optimization</h3>
+          <p>Creative solutions for better utilizing our hybrid work office space</p>
+          <div class="challenge-stats">
+            <span><i class="fas fa-lightbulb"></i> 8 ideas</span>
+            <span><i class="fas fa-users"></i> 6 participants</span>
+          </div>
+          <div class="btn-container">
+            <button class="btn join-challenge-btn">Join Challenge</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Load More Button -->
+      <div class="load-more">
+        <button class="btn btn-outline">
+          <i class="fas fa-plus"></i> Load More Challenges
+        </button>
+      </div>
+
+      <!-- Past Challenges Section -->
+      <section class="past-challenges">
+        <div class="section-header">
+          <h2>Recently Completed Challenges</h2>
+          <a href="#" class="view-all">View All <i class="fas fa-chevron-right"></i></a>
+        </div>
+        <div class="challenges-grid">
+          <div class="challenge-card past">
+            <div class="challenge-header">
+              <span class="challenge-prize">$10K Budget</span>
+              <span class="challenge-status">Completed</span>
+            </div>
+            <h3>Digital Transformation Ideas</h3>
+            <p>Submitted ideas for accelerating our digital transformation</p>
+            <div class="challenge-stats">
+              <span><i class="fas fa-lightbulb"></i> 42 ideas</span>
+              <span><i class="fas fa-users"></i> 31 participants</span>
+            </div>
+            <div class="btn-container">
+              <button class="btn btn-outline">View Results</button>
+            </div>
+          </div>
+          <div class="challenge-card past">
+            <div class="challenge-header">
+              <span class="challenge-prize">Featured in Report</span>
+              <span class="challenge-status">Completed</span>
+            </div>
+            <h3>Diversity & Inclusion Initiatives</h3>
+            <p>New programs to improve diversity and inclusion in the workplace</p>
+            <div class="challenge-stats">
+              <span><i class="fas fa-lightbulb"></i> 28 ideas</span>
+              <span><i class="fas fa-users"></i> 22 participants</span>
+            </div>
+            <div class="btn-container">
+              <button class="btn btn-outline">View Results</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <p>&copy; 2023 InnovateX. Internal use only.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
