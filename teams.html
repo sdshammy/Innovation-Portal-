@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teams | Corporate Innovation Portal</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="main-header">
+      <div class="header-content">
+        <div class="logo">
+          <i class="fas fa-lightbulb"></i>
+          <span style="background-color: white; padding: 4px; display: inline-block; border-radius: 4px;">
+            <img src="canada-life-e-tm.svg" alt="Canada Life Logo" style="height: 2em; vertical-align: middle;">
+          </span>
+        </div>
+        <nav class="main-nav">
+          <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+          <a href="news.html"><i class="fas fa-fire"></i> News</a>
+          <a href="ideas.html"><i class="fas fa-lightbulb"></i> Ideas</a>
+          <a href="challenges.html"><i class="fas fa-trophy"></i> Challenges</a>
+          <a href="teams.html" class="active"><i class="fas fa-users"></i> Teams</a>
+        </nav>
+        <div class="user-controls">
+          <button class="btn-notification">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">3</span>
+          </button>
+          <div class="user-profile">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User profile">
+            <div class="profile-menu">
+              <a href="#"><i class="fas fa-user"></i> Profile</a>
+              <a href="#"><i class="fas fa-cog"></i> Settings</a>
+              <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+          </div>
+        </div>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+      <nav class="mobile-nav">
+        <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="news.html"><i class="fas fa-fire"></i> News</a>
+        <a href="ideas.html"><i class="fas fa-lightbulb"></i> Ideas</a>
+        <a href="challenges.html"><i class="fas fa-trophy"></i> Challenges</a>
+        <a href="teams.html" class="active"><i class="fas fa-users"></i> Teams</a>
+        <div class="mobile-auth">
+          <button class="btn btn-primary" id="mobile-submit-idea-btn">
+            <i class="fas fa-plus"></i> Submit Idea
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Create Team Modal -->
+    <div class="modal" id="create-team-modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Create New Team</h2>
+        <form id="team-form">
+          <div class="form-group">
+            <label for="team-name">Team Name*</label>
+            <input type="text" id="team-name" placeholder="Enter team name" required>
+          </div>
+          <div class="form-group">
+            <label for="team-category">Category*</label>
+            <select id="team-category" required>
+              <option value="">Select category</option>
+              <option value="technology">Technology</option>
+              <option value="operations">Operations</option>
+              <option value="marketing">Marketing</option>
+              <option value="finance">Finance</option>
+              <option value="hr">HR</option>
+              <option value="product">Product</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="team-description">Description*</label>
+            <textarea id="team-description" placeholder="Describe your team's purpose and goals..." required></textarea>
+          </div>
+          <div class="form-group">
+            <label>Team Visibility</label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="visibility" value="public" checked>
+                <span>Public (visible to all employees)</span>
+              </label>
+              <label>
+                <input type="radio" name="visibility" value="private">
+                <span>Private (invite only)</span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="team-members">Invite Members</label>
+            <div class="member-search">
+              <input type="text" id="member-search" placeholder="Search employees...">
+              <div id="search-results" class="search-results"></div>
+            </div>
+            <div id="selected-members" class="selected-members"></div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn btn-outline cancel-btn">Cancel</button>
+            <button type="submit" class="btn btn-primary">Create Team</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Team Detail Modal -->
+    <div class="modal" id="team-modal">
+      <div class="modal-content team-modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="team-header">
+          <div class="team-avatar large">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="team-info">
+            <h2>AI Innovation Group</h2>
+            <span class="team-category">Technology</span>
+            <div class="team-meta">
+              <span><i class="fas fa-user"></i> 24 members</span>
+              <span><i class="fas fa-lightbulb"></i> 15 ideas</span>
+              <span><i class="fas fa-calendar"></i> Created 3 months ago</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="team-content">
+          <div class="team-description">
+            <h3>About This Team</h3>
+            <p>Exploring artificial intelligence applications across our products and services. We collaborate to identify AI opportunities, prototype solutions, and implement intelligent systems that enhance customer experience and operational efficiency.</p>
+          </div>
+          
+          <div class="team-section">
+            <h3>Members</h3>
+            <div class="members-grid">
+              <div class="member">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Member">
+                <span>Sarah Johnson</span>
+                <span class="role">Team Lead</span>
+              </div>
+              <div class="member">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Member">
+                <span>Michael Chen</span>
+                <span class="role">AI Specialist</span>
+              </div>
+              <div class="member">
+                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Member">
+                <span>Lisa Rodriguez</span>
+                <span class="role">Data Scientist</span>
+              </div>
+              <div class="member">
+                <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Member">
+                <span>David Wilson</span>
+                <span class="role">Developer</span>
+              </div>
+              <div class="member">
+                <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Member">
+                <span>Emma Smith</span>
+                <span class="role">UX Designer</span>
+              </div>
+              <div class="member more">
+                +19 more members
+              </div>
+            </div>
+          </div>
+          
+          <div class="team-section">
+            <h3>Team Ideas</h3>
+            <div class="ideas-list">
+              <div class="idea-item">
+                <h4>AI-Powered Document Processing</h4>
+                <p>Implement machine learning to automate contract review and extraction of key terms...</p>
+                <div class="idea-meta">
+                  <span><i class="fas fa-arrow-up"></i> 48</span>
+                  <span><i class="fas fa-comment"></i> 12</span>
+                </div>
+              </div>
+              <div class="idea-item">
+                <h4>Predictive Customer Service</h4>
+                <p>Use AI to anticipate customer needs and route inquiries to the right agents...</p>
+                <div class="idea-meta">
+                  <span><i class="fas fa-arrow-up"></i> 32</span>
+                  <span><i class="fas fa-comment"></i> 8</span>
+                </div>
+              </div>
+              <a href="#" class="view-all-ideas">View all 15 ideas <i class="fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="team-actions">
+          <button class="btn btn-primary join-team-btn">
+            <i class="fas fa-user-plus"></i> Join Team
+          </button>
+          <button class="btn btn-outline">
+            <i class="fas fa-envelope"></i> Message Team
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="page-header">
+        <h1><i class="fas fa-users"></i> Innovation Teams</h1>
+        <p>Collaborate with colleagues across departments to develop ideas</p>
+        <div class="header-actions">
+          <button class="btn btn-primary" id="create-team-btn">
+            <i class="fas fa-plus"></i> Create Team
+          </button>
+          <button class="btn btn-outline" id="find-teams-btn">
+            <i class="fas fa-search"></i> Find Teams
+          </button>
+        </div>
+      </div>
+
+      <!-- Teams Filters -->
+      <div class="filters-section">
+        <div class="search-filter">
+          <i class="fas fa-search"></i>
+          <input type="text" id="team-search" placeholder="Search teams...">
+        </div>
+        <div class="department-filter">
+          <select id="team-category-filter">
+            <option value="">All Departments</option>
+            <option value="technology">Technology</option>
+            <option value="operations">Operations</option>
+            <option value="marketing">Marketing</option>
+            <option value="finance">Finance</option>
+            <option value="hr">HR</option>
+            <option value="product">Product</option>
+          </select>
+        </div>
+        <div class="sort-filter">
+          <select id="team-sort">
+            <option value="recent">Most Recent</option>
+            <option value="active">Most Active</option>
+            <option value="members">Most Members</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Teams Grid -->
+      <section class="teams-grid">
+        <!-- Team Card 1 -->
+        <div class="team-card" data-team-id="1" data-category="technology" data-members="24" data-ideas="15" data-created="2023-03-15">
+          <div class="team-header">
+            <div class="team-avatar">
+              <i class="fas fa-robot"></i>
+            </div>
+            <div class="team-meta">
+              <h3>AI Innovation Group</h3>
+              <span class="team-category">Technology</span>
+            </div>
+          </div>
+          <p class="team-description">Exploring artificial intelligence applications across our products and services</p>
+          <div class="team-stats">
+            <div class="stat">
+              <i class="fas fa-users"></i>
+              <span>24</span>
+              <span>Members</span>
+            </div>
+            <div class="stat">
+              <i class="fas fa-lightbulb"></i>
+              <span>15</span>
+              <span>Ideas</span>
+            </div>
+          </div>
+          <div class="team-members">
+            <div class="member">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Member">
+            </div>
+            <div class="member">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Member">
+            </div>
+            <div class="member">
+              <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Member">
+            </div>
+            <div class="more-members">+21</div>
+          </div>
+          <div class="team-actions">
+            <button class="btn btn-outline view-team-btn">View Team</button>
+            <button class="btn btn-primary join-team-btn">Join Team</button>
+          </div>
+        </div>
+
+        <!-- Team Card 2 -->
+        <div class="team-card" data-team-id="2" data-category="operations" data-members="18" data-ideas="9" data-created="2023-04-22">
+          <div class="team-header">
+            <div class="team-avatar">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <div class="team-meta">
+              <h3>Green Initiatives</h3>
+              <span class="team-category">Operations</span>
+            </div>
+          </div>
+          <p class="team-description">Developing sustainable business practices and reducing our environmental impact</p>
+          <div class="team-stats">
+            <div class="stat">
+              <i class="fas fa-users"></i>
+              <span>18</span>
+              <span>Members</span>
+            </div>
+            <div class="stat">
+              <i class="fas fa-lightbulb"></i>
+              <span>9</span>
+              <span>Ideas</span>
+            </div>
+          </div>
+          <div class="team-members">
+            <div class="member">
+              <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Member">
+            </div>
+            <div class="member">
+              <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Member">
+            </div>
+            <div class="member">
+              <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Member">
+            </div>
+            <div class="more-members">+15</div>
+          </div>
+          <div class="team-actions">
+            <button class="btn btn-outline view-team-btn">View Team</button>
+            <button class="btn btn-primary join-team-btn">Join Team</button>
+          </div>
+        </div>
+
+        <!-- Team Card 3 -->
+        <div class="team-card" data-team-id="3" data-category="product" data-members="32" data-ideas="24" data-created="2023-02-10">
+          <div class="team-header">
+            <div class="team-avatar">
+              <i class="fas fa-hand-holding-heart"></i>
+            </div>
+            <div class="team-meta">
+              <h3>Customer Experience</h3>
+              <span class="team-category">Product</span>
+            </div>
+          </div>
+          <p class="team-description">Improving every touchpoint in the customer journey with innovative solutions</p>
+          <div class="team-stats">
+            <div class="stat">
+              <i class="fas fa-users"></i>
+              <span>32</span>
+              <span>Members</span>
+            </div>
+            <div class="stat">
+              <i class="fas fa-lightbulb"></i>
+              <span>24</span>
+              <span>Ideas</span>
+            </div>
+          </div>
+          <div class="team-members">
+            <div class="member">
+              <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Member">
+            </div>
+            <div class="member">
+              <img src="https://randomuser.me/api/portraits/men/28.jpg" alt="Member">
+            </div>
+            <div class="member">
+              <img src="https://randomuser.me/api/portraits/women/51.jpg" alt="Member">
+            </div>
+            <div class="more-members">+29</div>
+          </div>
+          <div class="team-actions">
+            <button class="btn btn-outline view-team-btn">View Team</button>
+            <button class="btn btn-primary join-team-btn">Join Team</button>
+          </div>
+        </div>
+
+        <!-- Team Card 4 -->
+        <div class="team-card" data-team-id="4" data-category="finance" data-members="12" data-ideas="7" data-created="2023-05-05">
+          <div class="team-header">
+            <div class="team-avatar">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="team-meta">
+              <h3>Data Analytics</h3>
+              <span class="team-category">Finance</span>
+            </div>
+          </div>
+          <p class="team-description">Leveraging data to drive business decisions and uncover new opportunities</p>
+          <div class="team-stats">
+            <div class="stat">
+              <i class="fas fa-users"></i>
+              <span>12</span>
+              <span>Members</span>
+            </div>
+            <div class="stat">
+              <i class="fas fa-lightbulb"></i>
+              <span>7</span>
+              <span>Ideas</span>
+            </div>
+          </div>
+          <div class="team-members">
+            <div class="member">
+              <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Member">
+            </div>
+            <div class="member">
+              <img src="https://randomuser.me/api/portraits/women/37.jpg" alt="Member">
+            </div>
+            <div class="member">
+              <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Member">
+            </div>
+            <div class="more-members">+9</div>
+          </div>
+          <div class="team-actions">
+            <button class="btn btn-outline view-team-btn">View Team</button>
+            <button class="btn btn-primary join-team-btn">Join Team</button>
+          </div>
+        </div>
+
+        <!-- Team Card 5 -->
+        <div class="team-card" data-team-id="5" data-category="technology" data-members="16" data-ideas="11" data-created="2023-01-18">
+          <div class="team-header">
+            <div class="team-avatar">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <div class="team-meta">
+              <h3>Mobile First</h3>
+              <span class="team-category">Technology</span>
+            </div>
+          </div>
+          <p class="team-description">Creating mobile-optimized experiences for our customers and employees</p>
+          <div class="team-stats">
+            <div class="stat">
+              <i class="fas fa-users"></i>
+              <span>16</span>
+              <span>Members</span>
+            </div>
+            <div class="stat">
+              <i class="fas fa-lightbulb"></i>
+              <span>11</span>
+              <span>Ideas</span>
+            </div>
+          </div>
+          <div class="team-members">
+            <div class="member">
+              <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Member">
+            </div>
+            <div class="member">
+              <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="Member">
+            </div>
+            <div class="member">
+              <img src="https://randomuser.me/api/portraits/women/42.jpg" alt="Member">
+            </div>
+            <div class="more-members">+13</div>
+          </div>
+          <div class="team-actions">
+            <button class="btn btn-outline view-team-btn">View Team</button>
+            <button class="btn btn-primary join-team-btn">Join Team</button>
+          </div>
+        </div>
+
+        <!-- Team Card 6 -->
+        <div class="team-card" data-team-id="6" data-category="hr" data-members="21" data-ideas="14" data-created="2023-06-01">
+          <div class="team-header">
+            <div class="team-avatar">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="team-meta">
+              <h3>Learning & Development</h3>
+              <span class="team-category">HR</span>
+            </div>
+          </div>
+          <p class="team-description">Innovating how we train and develop our employees for future success</p>
+          <div class="team-stats">
+            <div class="stat">
+              <i class="fas fa-users"></i>
+              <span>21</span>
+              <span>Members</span>
+            </div>
+            <div class="stat">
+              <i class="fas fa-lightbulb"></i>
+              <span>14</span>
+              <span>Ideas</span>
+            </div>
+          </div>
+          <div class="team-members">
+            <div class="member">
+              <img src="https://randomuser.me/api/portraits/men/38.jpg" alt="Member">
+            </div>
+            <div class="member">
+              <img src="https://randomuser.me/api/portraits/women/47.jpg" alt="Member">
+            </div>
+            <div class="member">
+              <img src="https://randomuser.me/api/portraits/men/29.jpg" alt="Member">
+            </div>
+            <div class="more-members">+18</div>
+          </div>
+          <div class="team-actions">
+            <button class="btn btn-outline view-team-btn">View Team</button>
+            <button class="btn btn-primary join-team-btn">Join Team</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Load More Button -->
+      <div class="load-more">
+        <button class="btn btn-outline" id="load-more-teams">
+          <i class="fas fa-plus"></i> Load More Teams
+        </button>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <p>&copy; 2023 InnovateX. Internal use only.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
